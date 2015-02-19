@@ -1,5 +1,4 @@
-$(function(){
-
+var setupInputLabels = function () {
   $('.styleMe [type="text"]').blur(function(){
     if($(this).val().length > 0){
       $(this).next().children().css('color', "transparent");
@@ -7,6 +6,11 @@ $(function(){
       $(this).next().children().css('color', "#000");
     }
   });
+};
+
+$(function(){
+
+  setupInputLabels();
 
   $("#new-contact").submit(function(event) {
     event.preventDefault();
@@ -90,29 +94,33 @@ $(function(){
   $("#add-address").click(function() {
     $("#new-addresses").append('<div class="new-address">' +
         '<div class="form-group styleMe" style="border-top: 1px dashed black;">' +
-        '<label  class="input" >' +
+        '<label class="input">' +
           '<input type="text" class="new-street">' +
           '<span><span>Street</span></span>' +
         '</label>' +
       '</div>' +
       '<div class="form-group styleMe">' +
-        '<label  class="input" >' +
+        '<label class="input">' +
           '<input type="text" class="new-city">' +
           '<span><span>City</span></span>' +
         '</label>' +
       '</div>' +
       '<div class="form-group styleMe">' +
-        '<label  class="input" >' +
+        '<label class="input">' +
           '<input type="text" class="new-state">' +
           '<span><span>State</span></span>' +
         '</label>' +
       '</div>' +
       '<div class="form-group styleMe">' +
-        '<label  class="input" >' +
+        '<label class="input">' +
           '<input type="text" class="new-zip">' +
           '<span><span>Zip</span></span>' +
         '</label>' +
     '</div>' +
     '</div>');
+  });
+
+  $("#add-address").on("click", function(event) {
+    setupInputLabels();
   });
 });
