@@ -2,9 +2,9 @@ $(function(){
 
   $('#styleMe input[type="text"]').blur(function(){
     if($(this).val().length > 0){
-      $(this).addClass('white');
+      $(this).next().children().css('color', "transparent");
     } else {
-      $(this).removeClass('white');
+      $(this).next().children().css('color', "#000");
     }
   });
 

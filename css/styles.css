@@ -144,9 +144,6 @@
   z-index: 99; }
   #styleMe input:focus {
   outline: 0; }
-  #styleMe input.white {
-  background-color: #fff;
-  }
   #styleMe input:focus + span span {
   cursor: initial;
   position: absolute;
