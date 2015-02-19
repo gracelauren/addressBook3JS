@@ -16,7 +16,7 @@ $(function(){
 
     var newContact = {firstName: inputtedFirstName,
                       lastName: inputtedLastName,
-                      address: []
+                      addresses: []
                       };
 
     $(".new-address").each(function(){
@@ -90,27 +90,27 @@ $(function(){
   });
 
   $("#add-address").click(function() {
-    $("#new-address").append('<div class="form-group" id="styleMe">' +
+    $(".new-address").append('<div class="form-group" id="styleMe" style="border-top: 1px dashed black;">' +
       '<label  class="input" >' +
-        '<input type="text" id="new-street">' +
+        '<input type="text" class="new-street">' +
         '<span><span>Street</span></span>' +
       '</label>' +
     '</div>' +
     '<div class="form-group" id="styleMe">' +
       '<label  class="input" >' +
-        '<input type="text" id="new-city">' +
+        '<input type="text" class="new-city">' +
         '<span><span>City</span></span>' +
       '</label>' +
     '</div>' +
     '<div class="form-group" id="styleMe">' +
       '<label  class="input" >' +
-        '<input type="text" id="new-state">' +
+        '<input type="text" class="new-state">' +
         '<span><span>State</span></span>' +
       '</label>' +
     '</div>' +
     '<div class="form-group" id="styleMe">' +
       '<label  class="input" >' +
-        '<input type="text" id="new-zip">' +
+        '<input type="text" class="new-zip">' +
         '<span><span>Zip</span></span>' +
       '</label>' +
     '</div>')
