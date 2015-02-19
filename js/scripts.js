@@ -13,24 +13,29 @@ $(function(){
 
     var inputtedFirstName = $("input#new-first-name").val();
     var inputtedLastName = $("input#new-last-name").val();
-    var inputtedStreet = $("input#new-street").val();
-    var inputtedCity = $("input#new-city").val();
-    var inputtedState = $("input#new-state").val();
-    var inputtedZip = $("input#new-zip").val();
-    var newAddress = { street: inputtedStreet,
-                       city: inputtedCity,
-                       state: inputtedState,
-                       zip: inputtedZip,
-                       fullAddress: function() {
-                        return this.street + ", " + this.city + ", " + this.state + ", " + this.zip;
-                       }
-                     };
+
     var newContact = {firstName: inputtedFirstName,
                       lastName: inputtedLastName,
-                      address: newAddress.fullAddress()
+                      address: []
                       };
 
-    $("ul#contact-list").append("<li><i class='fa-li fa fa-home'></i><span class='contact link'>" + newContact.firstName + " " + newContact.lastName + "</span><p> Add to Favorites?  <input type='checkbox' class='favorite'></p></li>");
+    $(".new-address").each(function(){
+      var inputtedStreet = $(this).find("input.new-street").val();
+      var inputtedCity = $(this).find("input.new-city").val();
+      var inputtedState = $(this).find("input.new-state").val();
+      var inputtedZip = $(this).find("input.new-zip").val();
+      var newAddress = { street: inputtedStreet,
+                         city: inputtedCity,
+                         state: inputtedState,
+                         zip: inputtedZip };
+     newContact.addresses.push(newAddress);
+    });
+
+
+
+    $("ul#contact-list").append("<li><i class='fa-li fa fa-home'></i><span class='contact link'>" +
+    newContact.firstName + " " + newContact.lastName +
+    "</span><p> Add to Favorites?  <input type='checkbox' class='favorite'></p></li>");
 
     $("input#new-first-name").val("");
     $("input#new-last-name").val("");
@@ -44,7 +49,12 @@ $(function(){
       $("#show-contact h2").text(newContact.firstName + " " + newContact.lastName);
       $(".first-name").text(newContact.firstName);
       $(".last-name").text(newContact.lastName);
-      $(".address").text(newContact.address);
+
+      $("ul#addresses").text("");
+      newContact.addresses.forEach(function(address) {
+        $("ul#addresses").append("<li>" + address.street + ", " + address.city +
+        ", " + address.state + " " + address.zip + "</li>");
+      });
     };
 
     $(".contact").last().click(addLink);
