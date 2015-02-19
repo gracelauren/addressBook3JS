@@ -76,25 +76,25 @@
 
 
 
-  #styleMe {
+  .styleMe {
   float: left;
   width: 100%;
   margin: 0 0 50px 0; }
-  #styleMe label.input {
+  .styleMe label.input {
   float: left;
   width: 200px;
   height: 42px;
   margin: 50px 0 0 0;
   position: relative;
   clear: both; }
-  #styleMe label.input span {
+  .styleMe label.input span {
   width: 100%;
   height: 40px;
   line-height: 40px;
   position: absolute;
   left: 0;
   cursor: text; }
-  #styleMe label.input span span {
+  .styleMe label.input span span {
   position: absolute;
   top: 0;
   z-index: 1;
@@ -105,7 +105,7 @@
   transition: 0.3s;
   -webkit-transition: 0.3s;
   -moz-transition: 0.3s; }
-  #styleMe label.input span:before {
+  .styleMe label.input span:before {
   content: '';
   width: 0%;
   height: 3px;
@@ -117,7 +117,7 @@
   transition: 0.3s;
   -webkit-transition: 0.3s;
   -moz-transition: 0.3s; }
-  #styleMe label.input span:after {
+  .styleMe label.input span:after {
   content: '';
   width: 0%;
   height: 3px;
@@ -129,7 +129,7 @@
   transition: 0.3s;
   -webkit-transition: 0.3s;
   -moz-transition: 0.3s; }
-  #styleMe input {
+  .styleMe input {
   float: left;
   width: 200px;
   height: 40px;
@@ -142,19 +142,19 @@
   font-size: 22px;
   position: relative;
   z-index: 99; }
-  #styleMe input:focus {
+  .styleMe input:focus {
   outline: 0; }
-  #styleMe input:focus + span span {
+  .styleMe input:focus + span span {
   cursor: initial;
   position: absolute;
   top: -35px;
   color: #56F9CB;
   }
-  #styleMe input:focus + span:before {
+  .styleMe input:focus + span:before {
   width: 50%; }
-  #styleMe input:focus + span:after {
+  .styleMe input:focus + span:after {
   width: 50%; }
-  #styleMe span.fixed span {
+  .styleMe span.fixed span {
   top: -35px; }
 
   .btn {
