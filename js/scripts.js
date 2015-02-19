@@ -37,13 +37,6 @@ $(function(){
     newContact.firstName + " " + newContact.lastName +
     "</span><p> Add to Favorites?  <input type='checkbox' class='favorite'></p></li>");
 
-    $("input#new-first-name").val("");
-    $("input#new-last-name").val("");
-    $("input#new-street").val("");
-    $("input#new-city").val("");
-    $("input#new-state").val("");
-    $("input#new-zip").val("");
-
     var addLink = function() {
       $("#show-contact").show();
       $("#show-contact h2").text(newContact.firstName + " " + newContact.lastName);
@@ -86,6 +79,11 @@ $(function(){
     });
     sortL($("#contact-list"));
     sortL($("#favorite-list"));
+
+    $(".sample-docs").turn("next");
+
+    $("form#new-contact")[0].reset();
+    $('#styleMe input[type="text"]').next().children().css('color', "#000");
 
   });
 
