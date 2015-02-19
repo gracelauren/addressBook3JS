@@ -13,14 +13,31 @@ $(function(){
 
     var inputtedFirstName = $("input#new-first-name").val();
     var inputtedLastName = $("input#new-last-name").val();
-    var inputtedAddress = $("input#new-address").val();
-    var newContact = {firstName: inputtedFirstName, lastName: inputtedLastName, address: inputtedAddress };
+    var inputtedStreet = $("input#new-street").val();
+    var inputtedCity = $("input#new-city").val();
+    var inputtedState = $("input#new-state").val();
+    var inputtedZip = $("input#new-zip").val();
+    var newAddress = { street: inputtedStreet,
+                       city: inputtedCity,
+                       state: inputtedState,
+                       zip: inputtedZip,
+                       fullAddress: function() {
+                        return this.street + ", " + this.city + ", " + this.state + ", " + this.zip;
+                       }
+                     };
+    var newContact = {firstName: inputtedFirstName,
+                      lastName: inputtedLastName,
+                      address: newAddress.fullAddress()
+                      };
 
     $("ul#contact-list").append("<li><i class='fa-li fa fa-home'></i><span class='contact link'>" + newContact.firstName + " " + newContact.lastName + "</span><p> Add to Favorites?  <input type='checkbox' class='favorite'></p></li>");
 
     $("input#new-first-name").val("");
     $("input#new-last-name").val("");
-    $("input#new-address").val("");
+    $("input#new-street").val("");
+    $("input#new-city").val("");
+    $("input#new-state").val("");
+    $("input#new-zip").val("");
 
     var addLink = function() {
       $("#show-contact").show();
@@ -60,7 +77,32 @@ $(function(){
     sortL($("#contact-list"));
     sortL($("#favorite-list"));
 
+  });
 
-
+  $("#add-address").click(function() {
+    $("#new-address").append('<div class="form-group" id="styleMe">' +
+      '<label  class="input" >' +
+        '<input type="text" id="new-street">' +
+        '<span><span>Street</span></span>' +
+      '</label>' +
+    '</div>' +
+    '<div class="form-group" id="styleMe">' +
+      '<label  class="input" >' +
+        '<input type="text" id="new-city">' +
+        '<span><span>City</span></span>' +
+      '</label>' +
+    '</div>' +
+    '<div class="form-group" id="styleMe">' +
+      '<label  class="input" >' +
+        '<input type="text" id="new-state">' +
+        '<span><span>State</span></span>' +
+      '</label>' +
+    '</div>' +
+    '<div class="form-group" id="styleMe">' +
+      '<label  class="input" >' +
+        '<input type="text" id="new-zip">' +
+        '<span><span>Zip</span></span>' +
+      '</label>' +
+    '</div>')
   });
 });
